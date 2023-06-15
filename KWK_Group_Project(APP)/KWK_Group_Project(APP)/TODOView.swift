@@ -85,11 +85,10 @@ struct TODOView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Add this line to put an image in the background. Replace "backgroundImage" with the name of your image.
+                
                 Image("backgroundImage")
-                    .renderingMode(.original)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: -12.0, height: 5.0)
+                    .resizable()
+                    .frame(width: -7.0, height: 5.0)
                     
 
                 List {

@@ -11,7 +11,8 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .trailing) {
-                
+                Color(red:1.000, green: 0.827, blue: 0.936)
+                    .ignoresSafeArea(.all)
                 Text("Mindopoly")
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -20,20 +21,25 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity)
                     .frame(height: 100)
                 
-
+                
                 Text("Welcome to Mindopoly! Our purpose is to help communities prioritize mental wellbeing by creating tools to assist people staying organized. This allows more people to stay on track with their goals and spend more time prioritizing mental health. Mindopoly is dedicated to promoting resiliance by providing a to-do tracker. Additionally, we have provided access to resources so that visitors can to learn more about mental health proactivity and understand ways to help people who may be struggling. ")
                     .padding(.horizontal)
-                    
+                
             }
-            .toolbar {
+            .background(Color(red:1.000, green: 0.827, blue: 0.936))            .toolbar {
+                
                 ToolbarItemGroup(placement: .status) {
                     NavigationLink(destination: TODOView()) {
                         Text("To-Do")
+                            .foregroundColor(Color.black)
                     }
                     NavigationLink(destination: ResourceView()) {
                         Text("Resources")
+                            .foregroundColor(Color.black)
                         NavigationLink(destination: PageView()){
                             Text("About Us")
+                                .foregroundColor(Color.black)
+                                
                         }
                     }
                 }
@@ -43,11 +49,12 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(false)
         }
-    }
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
         }
     }
-}
+        struct ContentView_Previews: PreviewProvider {
+            static var previews: some View {
+                ContentView()
+            }
+        }
+    
+

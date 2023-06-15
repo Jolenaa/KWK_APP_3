@@ -103,12 +103,12 @@
 			children = (
 				F1B236362A3ABACA00E7E390 /* KWK_Group_Project_APP_App.swift */,
 				F1B236382A3ABACA00E7E390 /* ContentView.swift */,
-				F1B2363A2A3ABACB00E7E390 /* Assets.xcassets */,
-				F1B2363C2A3ABACB00E7E390 /* KWK_Group_Project_APP_.entitlements */,
-				F1B2363D2A3ABACB00E7E390 /* Preview Content */,
 				F1B236612A3ABB0D00E7E390 /* TODOView.swift */,
 				F1B236632A3ABB5400E7E390 /* PageView.swift */,
 				F1B236652A3ABB9700E7E390 /* ResourceView.swift */,
+				F1B2363A2A3ABACB00E7E390 /* Assets.xcassets */,
+				F1B2363C2A3ABACB00E7E390 /* KWK_Group_Project_APP_.entitlements */,
+				F1B2363D2A3ABACB00E7E390 /* Preview Content */,
 			);
 			path = "KWK_Group_Project(APP)";
 			sourceTree = "<group>";
