@@ -29,18 +29,21 @@ struct ContentView: View {
             .background(Color(red:1.000, green: 0.827, blue: 0.936))            .toolbar {
                 
                 ToolbarItemGroup(placement: .status) {
-                    NavigationLink(destination: TODOView()) {
+                    NavigationLink(destination: TODOView().navigationBarBackButtonHidden(true)) {
                         Text("To-Do")
                             .foregroundColor(Color.black)
                     }
-                    NavigationLink(destination: ResourceView()) {
+                    NavigationLink(destination: ResourceView().navigationBarBackButtonHidden(true)) {
                         Text("Resources")
                             .foregroundColor(Color.black)
-                        NavigationLink(destination: PageView()){
-                            Text("About Us")
-                                .foregroundColor(Color.black)
-                                
-                        }
+                    }
+                    NavigationLink(destination: PageView().navigationBarBackButtonHidden(true)){
+                        Text("About Us")
+                            .foregroundColor(Color.black)
+                    }
+                            NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true)) {
+                                Text("Home")
+                                    .foregroundColor(Color.black)
                     }
                 }
             }

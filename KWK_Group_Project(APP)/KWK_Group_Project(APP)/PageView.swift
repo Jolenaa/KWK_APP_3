@@ -21,6 +21,7 @@ struct PageView: View {
                 .font(.system(size: 100))
             
             Text("As a team deeply committed to addressing the critical issue of female mental health, we are excited to introduce you to an innovative app that has been making waves in transforming lives and creating positive change: Mindopoly.")
+                .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
                 
@@ -38,8 +39,46 @@ struct PageView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
             
+            Text("Meet The Team: ")
+                .fontWeight(.heavy)
+                .font(.largeTitle)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity)
+                .frame(height: 100)
+                .font(.system(size: 100))
             Spacer()
         }
+        .toolbar {
+            
+            ToolbarItemGroup(placement: .status) {
+                NavigationLink(destination: TODOView().navigationBarBackButtonHidden(true)) {
+                    Text("To-Do")
+                        .foregroundColor(Color.black)
+                }
+                NavigationLink(destination: ResourceView().navigationBarBackButtonHidden(true)) {
+                    Text("Resources")
+                        .foregroundColor(Color.black)
+                }
+                NavigationLink(destination: PageView().navigationBarBackButtonHidden(true)){
+                    Text("About Us")
+                        .foregroundColor(Color.black)
+                }
+                        NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true)) {
+                            Text("Home")
+                                .foregroundColor(Color.black)
+                }
+            }
+        }
+        
+        .navigationTitle("Home")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(false)
+        .background(
+            Image("backgroundImage")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+        )
     }
 }
 

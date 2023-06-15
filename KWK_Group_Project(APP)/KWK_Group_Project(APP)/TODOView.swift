@@ -4,10 +4,9 @@
 //
 //  Created by Jolena Akudago on 6/14/23.
 //
-
 import SwiftUI
 
-struct Task: Identifiable {
+struct Task: Identifiable, Hashable {
     let id: String
     var title: String
     var isCompleted: Bool
@@ -37,6 +36,11 @@ struct TaskRow: View {
                     .foregroundColor(task.isCompleted ? Color(#colorLiteral(red: 1.0, green: 0.67, blue: 0.79, alpha: 1.0)) : Color(#colorLiteral(red: 0.89, green: 0.65, blue: 1.0, alpha: 1.0)))
             }
         }
+        .background(
+            Image("backgroundImage")
+                .resizable()
+                .scaledToFill()
+                .opacity(0.5))
         .padding()
         .background(Color.black)
         .cornerRadius(10)
@@ -85,12 +89,6 @@ struct TODOView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                
-                Image("backgroundImage")
-                    .resizable()
-                    .frame(width: -7.0, height: 5.0)
-                    
-
                 List {
                     ForEach(taskStore.tasks.indices.filter { !taskStore.tasks[$0].isCompleted }, id: \.self) { index in
                         TaskRow(task: self.$taskStore.tasks[index])
@@ -109,6 +107,8 @@ struct TODOView: View {
                 }
                 .listStyle(InsetGroupedListStyle())
                 .accentColor(Color.black)
+                LinearGradient(gradient: Gradient(colors: [Color("myPurple"), Color(.systemPink)]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
             }
         }
     }
