@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct Task: Identifiable, Hashable {
+struct Task: Identifiable {
     let id: String
     var title: String
     var isCompleted: Bool
@@ -67,6 +67,35 @@ struct AddTaskView: View {
                         .cornerRadius(5)
                 }
             }
+            .toolbar {
+                
+                ToolbarItemGroup(placement: .status) {
+                    NavigationLink(destination: TODOView().navigationBarBackButtonHidden(true)) {
+                        Text("To-Do")
+                            .foregroundColor(Color.black)
+                    }
+                    NavigationLink(destination: ResourceView().navigationBarBackButtonHidden(true)) {
+                        Text("Resources")
+                            .foregroundColor(Color.black)
+                    }
+                    NavigationLink(destination: PageView().navigationBarBackButtonHidden(true)){
+                        Text("About Us")
+                            .foregroundColor(Color.black)
+                    }
+                            NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true)) {
+                                Text("Home")
+                                    .foregroundColor(Color.black)
+                    }
+                }
+            }
+            
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(false)            .background(
+                Image("backgroundImage")
+                    .resizable()
+                    .scaledToFill()
+                    .opacity(0.5))
             .navigationTitle("Add a New Task")
             .navigationBarItems(leading: Button("Cancel") {
                 isPresented = false
@@ -89,6 +118,13 @@ struct TODOView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color("myPurple"), Color(.systemPink)]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
+                Image("backgroundImage")
+                    .resizable()
+                    .frame(width: -7.0, height: 5.0)
+                    
+
                 List {
                     ForEach(taskStore.tasks.indices.filter { !taskStore.tasks[$0].isCompleted }, id: \.self) { index in
                         TaskRow(task: self.$taskStore.tasks[index])
@@ -107,10 +143,10 @@ struct TODOView: View {
                 }
                 .listStyle(InsetGroupedListStyle())
                 .accentColor(Color.black)
-                LinearGradient(gradient: Gradient(colors: [Color("myPurple"), Color(.systemPink)]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
             }
-        }
+            LinearGradient(gradient: Gradient(colors: [Color("myPurple"), Color(.systemPink)]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+                }
     }
     
     func deleteTask(at offsets: IndexSet) {
