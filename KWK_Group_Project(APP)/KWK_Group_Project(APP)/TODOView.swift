@@ -54,7 +54,7 @@ struct AddTaskView: View {
     @State private var newTaskTitle: String = ""
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 TextField("New Task", text: $newTaskTitle)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -143,6 +143,27 @@ struct TODOView: View {
                 }
                 .listStyle(InsetGroupedListStyle())
                 .accentColor(Color.black)
+            }
+            .toolbar {
+                
+                ToolbarItemGroup(placement: .status) {
+                    NavigationLink(destination: TODOView().navigationBarBackButtonHidden(true)) {
+                        Text("To-Do")
+                            .foregroundColor(Color.black)
+                    }
+                    NavigationLink(destination: ResourceView().navigationBarBackButtonHidden(true)) {
+                        Text("Resources")
+                            .foregroundColor(Color.black)
+                    }
+                    NavigationLink(destination: PageView().navigationBarBackButtonHidden(true)){
+                        Text("About Us")
+                            .foregroundColor(Color.black)
+                    }
+                            NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true)) {
+                                Text("Home")
+                                    .foregroundColor(Color.black)
+                    }
+                }
             }
             LinearGradient(gradient: Gradient(colors: [Color("myPurple"), Color(.systemPink)]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
