@@ -76,6 +76,7 @@ struct PageView: View {
                         .resizable()
                         .scaledToFill()
                         .edgesIgnoringSafeArea(.all)
+                        .opacity(0.25)
                 )
                 
             }
